@@ -1,0 +1,609 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.owl-ontologies.com/OntologyAndroid.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xml:base="http://www.owl-ontologies.com/OntologyAndroid.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="values">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="res"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="drawable"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="layout"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="src">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Estructura_De_Archivos"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >En esta carpeta se guardan todos los archivos con extension ".java" dicho de otra forma las clases para la aplicacion.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="gen"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="assets"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="bin"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="libs"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#res"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="archivo_AndroidManifest"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Estructura_De_Archivos">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >La estructura general de las carpetas y archivos que conforman un proyecto al desarrollar una aplicacion Android.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Aplicacion_Android"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#archivo_AndroidManifest">
+    <rdfs:subClassOf rdf:resource="#Estructura_De_Archivos"/>
+    <owl:disjointWith rdf:resource="#src"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#gen"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#assets"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#bin"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#libs"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#res"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#bin">
+    <owl:disjointWith rdf:resource="#src"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#gen"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#assets"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#libs"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#res"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#archivo_AndroidManifest"/>
+    <rdfs:subClassOf rdf:resource="#Estructura_De_Archivos"/>
+  </owl:Class>
+  <owl:Class rdf:ID="class">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="package"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="imports"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Archivo_Java"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Aplicacion_Android">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ontologia de una Aplicacion Android.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#package">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Archivo_Java"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#imports"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Archivo_Java">
+    <rdfs:subClassOf rdf:resource="#src"/>
+  </owl:Class>
+  <owl:Class rdf:about="#drawable">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#res"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#layout"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#values"/>
+  </owl:Class>
+  <owl:Class rdf:about="#libs">
+    <rdfs:subClassOf rdf:resource="#Estructura_De_Archivos"/>
+    <owl:disjointWith rdf:resource="#src"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#gen"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#assets"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#bin"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#res"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#archivo_AndroidManifest"/>
+  </owl:Class>
+  <owl:Class rdf:ID="metodos">
+    <rdfs:subClassOf rdf:resource="#class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#gen">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Estructura_De_Archivos"/>
+    <owl:disjointWith rdf:resource="#src"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#assets"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#bin"/>
+    <owl:disjointWith rdf:resource="#libs"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#res"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#archivo_AndroidManifest"/>
+  </owl:Class>
+  <owl:Class rdf:about="#imports">
+    <owl:disjointWith rdf:resource="#package"/>
+    <owl:disjointWith rdf:resource="#class"/>
+    <rdfs:subClassOf rdf:resource="#Archivo_Java"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >En esta seccion de la actividad se importan las clases necesarias para la utilizacion de los diversos metodos que ofrece Android, principalmente son 3: Activity, Bundle, Menu</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#res">
+    <rdfs:subClassOf rdf:resource="#Estructura_De_Archivos"/>
+    <owl:disjointWith rdf:resource="#src"/>
+    <owl:disjointWith rdf:resource="#gen"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#assets"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#bin"/>
+    <owl:disjointWith rdf:resource="#libs"/>
+    <owl:disjointWith rdf:resource="#archivo_AndroidManifest"/>
+  </owl:Class>
+  <owl:Class rdf:about="#assets">
+    <owl:disjointWith rdf:resource="#src"/>
+    <owl:disjointWith rdf:resource="#gen"/>
+    <owl:disjointWith rdf:resource="#bin"/>
+    <owl:disjointWith rdf:resource="#libs"/>
+    <owl:disjointWith rdf:resource="#res"/>
+    <owl:disjointWith rdf:resource="#archivo_AndroidManifest"/>
+    <rdfs:subClassOf rdf:resource="#Estructura_De_Archivos"/>
+  </owl:Class>
+  <owl:Class rdf:about="#layout">
+    <rdfs:subClassOf rdf:resource="#res"/>
+    <owl:disjointWith rdf:resource="#drawable"/>
+    <owl:disjointWith rdf:resource="#values"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="tiene">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="es_parte_de"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Estructura_De_Archivos"/>
+    <rdfs:domain rdf:resource="#Aplicacion_Android"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#es_parte_de">
+    <rdfs:domain rdf:resource="#Estructura_De_Archivos"/>
+    <owl:inverseOf rdf:resource="#tiene"/>
+    <rdfs:range rdf:resource="#Aplicacion_Android"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="Tipo_Archivo">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#class"/>
+          <owl:Class rdf:about="#imports"/>
+          <owl:Class rdf:about="#libs"/>
+          <owl:Class rdf:about="#assets"/>
+          <owl:Class rdf:about="#bin"/>
+          <owl:Class rdf:about="#gen"/>
+          <owl:Class rdf:about="#layout"/>
+          <owl:Class rdf:about="#archivo_AndroidManifest"/>
+          <owl:Class rdf:about="#values"/>
+          <owl:Class rdf:about="#drawable"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Nombre">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#archivo_AndroidManifest"/>
+          <owl:Class rdf:about="#assets"/>
+          <owl:Class rdf:about="#values"/>
+          <owl:Class rdf:about="#res"/>
+          <owl:Class rdf:about="#src"/>
+          <owl:Class rdf:about="#metodos"/>
+          <owl:Class rdf:about="#gen"/>
+          <owl:Class rdf:about="#layout"/>
+          <owl:Class rdf:about="#package"/>
+          <owl:Class rdf:about="#Estructura_De_Archivos"/>
+          <owl:Class rdf:about="#class"/>
+          <owl:Class rdf:about="#libs"/>
+          <owl:Class rdf:about="#imports"/>
+          <owl:Class rdf:about="#drawable"/>
+          <owl:Class rdf:about="#Archivo_Java"/>
+          <owl:Class rdf:about="#bin"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="forman_parte_de">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#res"/>
+          <owl:Class rdf:about="#assets"/>
+          <owl:Class rdf:about="#libs"/>
+          <owl:Class rdf:about="#gen"/>
+          <owl:Class rdf:about="#src"/>
+          <owl:Class rdf:about="#bin"/>
+          <owl:Class rdf:about="#archivo_AndroidManifest"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Estructura_De_Archivos"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="contiene"/>
+    </owl:inverseOf>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#contiene">
+    <owl:inverseOf rdf:resource="#forman_parte_de"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#res"/>
+          <owl:Class rdf:about="#assets"/>
+          <owl:Class rdf:about="#libs"/>
+          <owl:Class rdf:about="#gen"/>
+          <owl:Class rdf:about="#src"/>
+          <owl:Class rdf:about="#bin"/>
+          <owl:Class rdf:about="#archivo_AndroidManifest"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Estructura_De_Archivos"/>
+  </owl:InverseFunctionalProperty>
+  <metodos rdf:ID="metodo_onResume">
+    <es_parte_de>
+      <class rdf:ID="class_clase_principal">
+        <es_parte_de>
+          <Archivo_Java rdf:ID="Archivo_Java_MainActivity">
+            <tiene rdf:resource="#class_clase_principal"/>
+            <tiene>
+              <imports rdf:ID="import_Activty">
+                <es_parte_de rdf:resource="#Archivo_Java_MainActivity"/>
+                <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >android.app.activity</Nombre>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                ></rdfs:comment>
+                <forman_parte_de rdf:resource="#import_Activty"/>
+                <contiene rdf:resource="#import_Activty"/>
+                <contiene>
+                  <imports rdf:ID="import_Bundle">
+                    <forman_parte_de rdf:resource="#import_Activty"/>
+                    <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >android.os.Bundle</Nombre>
+                    <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >class</Tipo_Archivo>
+                  </imports>
+                </contiene>
+                <contiene>
+                  <imports rdf:ID="import_Menu">
+                    <forman_parte_de rdf:resource="#import_Activty"/>
+                    <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >class</Tipo_Archivo>
+                    <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >android.view.Menu</Nombre>
+                  </imports>
+                </contiene>
+                <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >class</Tipo_Archivo>
+              </imports>
+            </tiene>
+            <tiene>
+              <package rdf:ID="package_nombre_de_paquete_de_aplicacion">
+                <forman_parte_de rdf:resource="#package_nombre_de_paquete_de_aplicacion"/>
+                <contiene rdf:resource="#package_nombre_de_paquete_de_aplicacion"/>
+                <es_parte_de rdf:resource="#Archivo_Java_MainActivity"/>
+                <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >com.example.miApp</Nombre>
+              </package>
+            </tiene>
+            <contiene rdf:resource="#class_clase_principal"/>
+            <forman_parte_de>
+              <src rdf:ID="src_carpeta">
+                <tiene rdf:resource="#Archivo_Java_MainActivity"/>
+                <contiene rdf:resource="#Archivo_Java_MainActivity"/>
+                <es_parte_de>
+                  <Estructura_De_Archivos rdf:ID="Estructura_De_Archivos_23">
+                    <tiene>
+                      <libs rdf:ID="libs_carpeta">
+                        <forman_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                        <tiene>
+                          <libs rdf:ID="libs_libreria_de_support">
+                            <forman_parte_de rdf:resource="#libs_carpeta"/>
+                            <es_parte_de rdf:resource="#libs_carpeta"/>
+                            <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >jar</Tipo_Archivo>
+                            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >android-support-vX.jar</Nombre>
+                          </libs>
+                        </tiene>
+                        <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >libs</Nombre>
+                        <es_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                        <contiene rdf:resource="#libs_libreria_de_support"/>
+                      </libs>
+                    </tiene>
+                    <contiene>
+                      <gen rdf:ID="gen_carpeta">
+                        <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >bin</Nombre>
+                        <tiene>
+                          <gen rdf:ID="gen_R">
+                            <es_parte_de rdf:resource="#gen_carpeta"/>
+                            <forman_parte_de rdf:resource="#gen_carpeta"/>
+                            <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >class</Tipo_Archivo>
+                            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >R</Nombre>
+                          </gen>
+                        </tiene>
+                        <tiene>
+                          <gen rdf:ID="gen_BuildConfig">
+                            <es_parte_de rdf:resource="#gen_carpeta"/>
+                            <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >class</Tipo_Archivo>
+                            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >BuildConfig</Nombre>
+                            <forman_parte_de rdf:resource="#gen_carpeta"/>
+                          </gen>
+                        </tiene>
+                        <forman_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                        <contiene rdf:resource="#gen_BuildConfig"/>
+                        <contiene rdf:resource="#gen_R"/>
+                      </gen>
+                    </contiene>
+                    <contiene>
+                      <archivo_AndroidManifest rdf:ID="AndroidManifest">
+                        <forman_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                        <es_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                        <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >xml</Tipo_Archivo>
+                        <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >AndroidManifest</Nombre>
+                      </archivo_AndroidManifest>
+                    </contiene>
+                    <contiene rdf:resource="#src_carpeta"/>
+                    <contiene>
+                      <res rdf:ID="res_carpeta">
+                        <es_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                        <contiene>
+                          <values rdf:ID="values_carpeta">
+                            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >values</Nombre>
+                            <es_parte_de rdf:resource="#res_carpeta"/>
+                            <forman_parte_de rdf:resource="#res_carpeta"/>
+                          </values>
+                        </contiene>
+                        <tiene rdf:resource="#values_carpeta"/>
+                        <tiene>
+                          <drawable rdf:ID="drawable_carpeta">
+                            <es_parte_de rdf:resource="#res_carpeta"/>
+                            <forman_parte_de rdf:resource="#res_carpeta"/>
+                            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >drawable</Nombre>
+                          </drawable>
+                        </tiene>
+                        <tiene>
+                          <layout rdf:ID="layout_carpeta">
+                            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >layout</Nombre>
+                            <forman_parte_de rdf:resource="#res_carpeta"/>
+                            <es_parte_de rdf:resource="#res_carpeta"/>
+                          </layout>
+                        </tiene>
+                        <contiene rdf:resource="#drawable_carpeta"/>
+                        <forman_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                        <contiene rdf:resource="#layout_carpeta"/>
+                        <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >res</Nombre>
+                      </res>
+                    </contiene>
+                    <contiene>
+                      <assets rdf:ID="assets_recursos">
+                        <es_parte_de>
+                          <assets rdf:ID="assets_carpeta">
+                            <tiene rdf:resource="#assets_recursos"/>
+                            <es_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                            <forman_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >assets</Nombre>
+                          </assets>
+                        </es_parte_de>
+                        <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >recursos</Nombre>
+                        <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >png, gif, html</Tipo_Archivo>
+                        <forman_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                      </assets>
+                    </contiene>
+                    <tiene rdf:resource="#src_carpeta"/>
+                    <tiene rdf:resource="#assets_carpeta"/>
+                    <tiene rdf:resource="#AndroidManifest"/>
+                    <tiene rdf:resource="#res_carpeta"/>
+                    <contiene rdf:resource="#libs_carpeta"/>
+                    <contiene>
+                      <bin rdf:ID="bin_carpeta">
+                        <contiene>
+                          <bin rdf:ID="bin_recursos">
+                            <forman_parte_de rdf:resource="#bin_carpeta"/>
+                            <es_parte_de rdf:resource="#bin_carpeta"/>
+                            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >recursos_a_publicar</Nombre>
+                            <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >png, gif, dex, apk, jar</Tipo_Archivo>
+                          </bin>
+                        </contiene>
+                        <tiene rdf:resource="#bin_recursos"/>
+                        <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >bin</Nombre>
+                        <forman_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+                      </bin>
+                    </contiene>
+                    <contiene rdf:resource="#assets_carpeta"/>
+                    <es_parte_de>
+                      <Aplicacion_Android rdf:ID="Aplicacion_Android_24">
+                        <tiene rdf:resource="#Estructura_De_Archivos_23"/>
+                      </Aplicacion_Android>
+                    </es_parte_de>
+                  </Estructura_De_Archivos>
+                </es_parte_de>
+                <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >src</Nombre>
+                <forman_parte_de rdf:resource="#Estructura_De_Archivos_23"/>
+              </src>
+            </forman_parte_de>
+            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >MainActivity</Nombre>
+            <es_parte_de rdf:resource="#src_carpeta"/>
+          </Archivo_Java>
+        </es_parte_de>
+        <contiene>
+          <metodos rdf:ID="metodo_onPause">
+            <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >void</Tipo_Archivo>
+            <es_parte_de rdf:resource="#class_clase_principal"/>
+            <forman_parte_de rdf:resource="#class_clase_principal"/>
+            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >onPause</Nombre>
+          </metodos>
+        </contiene>
+        <tiene rdf:resource="#metodo_onResume"/>
+        <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >class</Tipo_Archivo>
+        <tiene rdf:resource="#metodo_onPause"/>
+        <contiene>
+          <metodos rdf:ID="metodo_onRestart">
+            <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >void</Tipo_Archivo>
+            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >onRestart</Nombre>
+            <forman_parte_de rdf:resource="#class_clase_principal"/>
+            <es_parte_de rdf:resource="#class_clase_principal"/>
+          </metodos>
+        </contiene>
+        <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >public class</Nombre>
+        <contiene>
+          <metodos rdf:ID="metodo_onStart">
+            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >onStart</Nombre>
+            <es_parte_de rdf:resource="#class_clase_principal"/>
+            <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >void</Tipo_Archivo>
+            <forman_parte_de rdf:resource="#class_clase_principal"/>
+          </metodos>
+        </contiene>
+        <contiene>
+          <metodos rdf:ID="metodo_onDestroy">
+            <es_parte_de rdf:resource="#class_clase_principal"/>
+            <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >void</Tipo_Archivo>
+            <forman_parte_de rdf:resource="#class_clase_principal"/>
+            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >onDestroy</Nombre>
+          </metodos>
+        </contiene>
+        <tiene>
+          <metodos rdf:ID="metodo_onStop">
+            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >onStop</Nombre>
+            <es_parte_de rdf:resource="#class_clase_principal"/>
+            <forman_parte_de rdf:resource="#class_clase_principal"/>
+            <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >void</Tipo_Archivo>
+          </metodos>
+        </tiene>
+        <contiene rdf:resource="#metodo_onStop"/>
+        <tiene rdf:resource="#metodo_onStart"/>
+        <contiene>
+          <metodos rdf:ID="metodo_onCreate">
+            <forman_parte_de rdf:resource="#class_clase_principal"/>
+            <es_parte_de rdf:resource="#class_clase_principal"/>
+            <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >onCreate</Nombre>
+            <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >void</Tipo_Archivo>
+          </metodos>
+        </contiene>
+        <tiene rdf:resource="#metodo_onCreate"/>
+        <tiene rdf:resource="#metodo_onRestart"/>
+        <contiene rdf:resource="#metodo_onResume"/>
+        <tiene rdf:resource="#metodo_onDestroy"/>
+        <forman_parte_de rdf:resource="#Archivo_Java_MainActivity"/>
+      </class>
+    </es_parte_de>
+    <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >void</Tipo_Archivo>
+    <forman_parte_de rdf:resource="#class_clase_principal"/>
+    <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >onResume</Nombre>
+  </metodos>
+  <drawable rdf:ID="drawable_ic_imagen1">
+    <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >png</Tipo_Archivo>
+    <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ic_imagen1</Nombre>
+  </drawable>
+  <drawable rdf:ID="drawable_ic_launcher">
+    <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >png</Tipo_Archivo>
+    <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ic_launcher</Nombre>
+  </drawable>
+  <values rdf:ID="values_styles">
+    <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >styles</Nombre>
+    <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >xml</Tipo_Archivo>
+  </values>
+  <values rdf:ID="values_dimens">
+    <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >dimens</Nombre>
+    <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >xml</Tipo_Archivo>
+  </values>
+  <values rdf:ID="values_strings">
+    <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >xml</Tipo_Archivo>
+    <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >strings</Nombre>
+  </values>
+  <layout rdf:ID="layout_main_activity">
+    <Tipo_Archivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >xml</Tipo_Archivo>
+    <Nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >main_activity</Nombre>
+  </layout>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->
